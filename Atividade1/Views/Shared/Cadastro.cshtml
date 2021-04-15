@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Cadastro";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <label for="login">Login:</label>
+    <input type="text" name="login" /><br />
+    <label for="senha">Senha:</label>
+    <input type="password" name="senha" /><br />
+    <input type="button" value="Cadastrar" onclick="location.href= '/Home/Login'"/>
+</div>
