@@ -6,20 +6,27 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Atividade1.Models;
+using Buffet.Database;
 
 namespace Atividade1.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DatabaseContext _databaseContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DatabaseContext databaseContext)
         {
             _logger = logger;
+            _databaseContext = databaseContext;
         }
 
         public IActionResult Index()
         {
+            var listaClientes = _databaseContext.Cliente.ToList();
+
+
+
             return View();
         }
 
