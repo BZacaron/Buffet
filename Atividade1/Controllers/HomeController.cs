@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Atividade1.Models;
+using Buffet.Acesso;
+using Buffet.Database;
+using Buffet.Models.Usuario;
+using Buffet.RequestModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Atividade1.Models;
-using Buffet.Database;
+using System;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Atividade1.Controllers
 {
@@ -15,16 +16,20 @@ namespace Atividade1.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly DatabaseContext _databaseContext;
 
-        public HomeController(ILogger<HomeController> logger, DatabaseContext databaseContext)
+        private readonly Usuario _usuario;
+        private readonly CadastroUsuarioService _cadastroUsuarioService;
+
+        public HomeController(CadastroUsuarioService cadastroUsuarioService)
         {
-            _logger = logger;
-            _databaseContext = databaseContext;
+            _cadastroUsuarioService = cadastroUsuarioService;
         }
 
         public IActionResult Index()
         {
-            var listaClientes = _databaseContext.Cliente.ToList();
+            //var listaClientes = _databaseContext.Cliente.ToList();
 
+            //_databaseContext.[TABELA].Add([OBJETO]);  -> adicionar no banco
+            //_databaseContext.SaveChanges();  -> salva as alterações no banco
 
 
             return View();
@@ -35,14 +40,68 @@ namespace Atividade1.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Cadastro()
         {
-            return View();
+            var viewmodel = new MsgAcessoViewModel();
+
+            viewmodel.Mensagem = (string)TempData["msg-cadastro"];
+
+            return View(viewmodel);
+        }
+        [HttpPost]
+        public async System.Threading.Tasks.Task<RedirectResult> Cadastro(CadastroRequest request)
+        {
+            var redirectUrl = "/Home/Cadastro";
+            var user = request.User;
+            var senha = request.Senha;
+
+            if(user==null)
+            {
+                TempData["msg-cadastro"] = "O campo de Usuário não pode ficar vazio.";
+                return Redirect(redirectUrl);
+            }
+            if (senha == null)
+            {
+                TempData["msg-cadastro"] = "O campo de Senha não pode ficar vazio.";
+                return Redirect(redirectUrl);
+            }
+
+            try
+            {
+                await _cadastroUsuarioService.RegistrarUsuario(user, senha);
+                TempData["msg-cadastro"] = "Cadastro realizado com sucesso!";
+                return Redirect("/Home/Login");
+            }catch(Exception exception){
+                TempData["msg-cadastro"] = exception.Message;
+                return Redirect("/Home/Cadastro");
+            }
+
+
+            return Redirect(redirectUrl);
         }
 
-        public IActionResult Login()
+        public RedirectResult Login(LoginRequest request)
         {
-            return View();
+            //var usuarios = _usuario.ObterUsuarios();
+            var listaUsuarios = _databaseContext.Usuario.ToList();
+            bool usuarioValidado = false;
+            var user = request.User;
+            var senha = request.Senha;
+
+            foreach (var usuario in listaUsuarios)
+            {
+                if (usuario.Login == user && usuario.Senha == senha)
+                    usuarioValidado = true;
+            }
+
+            if(usuarioValidado == true)
+                return Redirect("/Home/Principal");
+            else
+            {
+                TempData["msg-cadastro"] = "Usuário ou senha incorretos";
+                return Redirect("/Home/Login");
+            }             
         }
 
         public IActionResult Recuperar()

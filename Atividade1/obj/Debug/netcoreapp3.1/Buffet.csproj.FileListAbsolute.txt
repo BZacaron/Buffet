@@ -142,3 +142,9 @@ C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Window
 C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
 C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Windows 10\Desktop\Bernardo\Faculdade\3º semestre\Programação Windows Avançada\Projetos\Remake do buffet\Buffet\Atividade1\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll

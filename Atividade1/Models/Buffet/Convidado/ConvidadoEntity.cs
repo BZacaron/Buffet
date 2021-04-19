@@ -14,7 +14,7 @@ namespace Buffet.Models.Buffet.Convidado
         public DateTime DataInsercao { get; set; }
         public string Observacoes { get; set; }
 
-        Evento.EventoEntity Evento;
+        public Evento.EventoEntity Evento { get; set; }
         SituacaoConvidado Situacao;
     }
 }

@@ -17,7 +17,7 @@ namespace Buffet.Models.Buffet.Evento
         public DateTime Modificacao { get; set; }
         public string Observacoes { get; set; }
 
-        Cliente.ClienteEntity Cliente;
+        public Cliente.ClienteEntity Cliente { get; set; }
         SituacaoEvento Situacao;
     }
 }

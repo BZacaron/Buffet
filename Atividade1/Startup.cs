@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Buffet.Database;
+using Buffet.Models.Buffet.Cliente;
+using Buffet.Models.Usuario;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,13 @@ namespace Atividade1
             services.AddControllersWithViews();
 
             services.AddDbContext<DatabaseContext>(options => options.UseMySql(Configuration.GetConnectionString("BuffetDb")));
+
+            services.AddTransient<ClienteService>();
+            /*services.AddTransient<ConvidadoService>();
+            services.AddTransient<EventoService>();*/
+
+            services.AddTransient<Usuario>();
+            services.AddTransient<CadastroUsuarioService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

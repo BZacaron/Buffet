@@ -17,5 +17,11 @@ namespace Buffet.Models.Buffet.Cliente
         public DateTime Insercao { get; set; }
         public DateTime Modificacao { get; set; }
         public string Observacoes { get; set; }
+
+
+        public ClienteEntity()
+        {
+            Id = new int();
+        }
     }
 }

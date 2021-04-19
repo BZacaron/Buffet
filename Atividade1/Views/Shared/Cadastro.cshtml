@@ -1,12 +1,21 @@
-﻿@{
+﻿@model Buffet.Acesso.MsgAcessoViewModel;
+@{
     ViewData["Title"] = "Cadastro";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1> 
+
+@if(Model.Mensagem != null) 
+{
+    <br /><br />
+    <p>@Model.Mensagem</p>
+}
 
 <div class="text-center">
-    <label for="login">Login:</label>
-    <input type="text" name="login" /><br />
-    <label for="senha">Senha:</label>
-    <input type="password" name="senha" /><br />
-    <input type="button" value="Cadastrar" onclick="location.href= '/Home/Login'"/>
+    <form action="/Home/Cadastro" method="post">
+        <label for="user">Usuário:</label>
+        <input type="text" name="user" id="user" /><br />
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" /><br />
+        <input type="submit" value="Cadastrar" />
+    </form>
 </div>
