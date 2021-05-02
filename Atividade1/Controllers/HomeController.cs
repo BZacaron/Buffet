@@ -83,7 +83,7 @@ namespace Atividade1.Controllers
 
         public RedirectResult Login(LoginRequest request)
         {
-            //var usuarios = _usuario.ObterUsuarios();
+            var usuarios = _usuario.ObterUsuarios();
             var listaUsuarios = _databaseContext.Usuario.ToList();
             bool usuarioValidado = false;
             var user = request.User;
